@@ -1,3 +1,0 @@
-[submodule "ansible/roles/ansible-role-common"]
-	path = ansible/roles/ansible-role-common
-	url = git@github.com:GregSharpe1/ansible-role-common.git

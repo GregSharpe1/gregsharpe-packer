@@ -1,0 +1,8 @@
+---
+
+- name: Common packages for debian based systems
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ common_debian_packages }}"

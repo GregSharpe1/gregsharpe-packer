@@ -18,4 +18,4 @@
         update_cache: yes
   roles:
     # We're calling from the packer directory
-    - { role: ../ansible/roles/ansible-role-common }
+    - { role: ../ansible/roles/common }
