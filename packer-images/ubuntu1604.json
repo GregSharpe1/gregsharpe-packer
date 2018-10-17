@@ -3,26 +3,17 @@
     "aws_access_key": "{{ env `AWS_ACCESS_KEY` }}",
     "aws_secret_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}"
   },
-  "builders": [{
-    "name": "Ubuntu 16.04 US East",
-    "type": "amazon-ebs",
-    "access_key": "{{user `aws_access_key`}}",
-    "secret_key": "{{user `aws_secret_key`}}",
-    "region": "us-east-1",
-    "source_ami": "ami-80861296",
-    "instance_type": "t2.micro",
-    "ssh_username": "ubuntu",
-    "ami_name": "gregsharpe-packer Ubuntu 16.04"
-  },
-  {
-    "name": "Ubuntu 16.04 EU West",
-    "type": "amazon-ebs",
-    "access_key": "{{user `aws_access_key`}}",
-    "secret_key": "{{user `aws_secret_key`}}",
-    "region": "eu-west-1",
-    "source_ami": "ami-a8d2d7ce",
-    "instance_type": "t2.micro",
-    "ssh_username": "ubuntu",
-    "ami_name": "gregsharpe-packer Ubuntu 16.04"
-  }]
+  "builders": [
+    {
+      "name": "Ubuntu 16.04 EU West",
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "eu-west-1",
+      "source_ami": "ami-a8d2d7ce",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "gregsharpe-packer Ubuntu 16.04"
+    }
+  ]
 }
