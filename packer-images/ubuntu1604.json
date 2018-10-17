@@ -15,6 +15,12 @@
       "ssh_username": "ubuntu",
       "ami_name": "gregsharpe-packer Ubuntu 16.04"
     }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/plays/base.yml"
+    }
   ]
 }
   

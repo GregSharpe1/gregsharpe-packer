@@ -1,0 +1,16 @@
+---
+
+- name: Make sure python minimal is installed for ansible
+  hosts: all
+  gather_facts: "False"
+  tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      become: "True"
+      changed_when: "False"
+
+- name: Run the base role on the instance
+  hosts: all
+  become: yes
+  roles:
+    - { role: ansible/roles/ansible-role-common }
