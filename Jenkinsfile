@@ -4,7 +4,6 @@ pipeline {
   environment {
     AWS_ACCESS_KEY = credentials('JenkinsPacker_Public')
     AWS_SECRET_ACCESS_KEY = ('JenkinsPacker_Private')
-    TEST = 'GREG'
   }
   stages {
     stage('Checkout SCM') {
@@ -21,12 +20,12 @@ pipeline {
 	      }
       }
     }
-    // stage('Build') {
-    //   steps {
-    //     dir('packer-images/') {
-    //       sh 'packer build ubuntu1604.json'
-    //     }
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        dir('packer-images/') {
+          sh 'packer build ubuntu1604.json'
+        }
+      }
+    }
   }
 }
