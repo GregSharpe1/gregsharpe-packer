@@ -14,8 +14,6 @@ pipeline {
     stage('Validate') {
       steps {
         dir('packer-images/') {
-          sh 'echo $AWS_ACCESS_KEY'
-          sh 'echo $TEST'
           sh 'packer validate ubuntu1604.json'
 	      }
       }
