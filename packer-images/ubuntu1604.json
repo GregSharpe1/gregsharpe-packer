@@ -1,6 +1,6 @@
 {
   "variables": {
-    "aws_access_key": "{{ env `AWS_ACCESS_KEY` }}",
+    "aws_access_key": "{{ env `AWS_ACCESS_KEY_ID` }}",
     "aws_secret_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}"
   },
   "builders": [
@@ -9,8 +9,8 @@
       "type": "amazon-ebs",
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
-      "region": "eu-west-1",
-      "source_ami": "ami-00103874",
+      "region": "eu-west-3",
+      "source_ami": "ami-d37acbae",
       "instance_type": "t2.nano",
       "ssh_username": "ubuntu",
       "ami_name": "gregsharpe-packer Ubuntu 16.04"
