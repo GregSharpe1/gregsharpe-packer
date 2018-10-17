@@ -14,15 +14,5 @@ pipeline {
 	}
       }
     }
-    #stage('Build Images') {
-    #  steps {
-    #    dir('packer-images/') {
-    #      sh 'packer build --all'
-    #    }
-    #  }
-    #}
-    #stage('Verify') {
-    #  parallel
-    #}
   }
 }
