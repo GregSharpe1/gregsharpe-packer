@@ -2,7 +2,7 @@ pipeline {
 
   agent any
   environment {
-    AWS_ACCESS_KEY = credentials('JenkinsPacker_Public')
+    AWS_ACCESS_KEY_ID = credentials('JenkinsPacker_Public')
     AWS_SECRET_ACCESS_KEY = ('JenkinsPacker_Private')
   }
   stages {
