@@ -18,5 +18,12 @@ pipeline {
 	      }
       }
     }
+    stage('Build') {
+      steps {
+        dir('packer-images/') {
+          sh 'packer build ubuntu1604.json'
+        }
+      }
+    }
   }
 }
