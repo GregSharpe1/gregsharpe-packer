@@ -2,8 +2,8 @@ pipeline {
 
   agent any
   environment {
-    AWS_ACCESS_KEY = 'test access key'
-    AWS_SECRET_ACCESS_KEY = 'test secret key'
+    AWS_ACCESS_KEY = credentials('JenkinsPacker_Public')
+    AWS_SECRET_ACCESS_KEY = ('JenkinsPacker_Private')
   }
   stages {
     stage('Checkout SCM') {
@@ -15,7 +15,7 @@ pipeline {
       steps {
         dir('packer-images/') {
           sh 'packer validate ubuntu1604.json'
-	}
+	      }
       }
     }
   }
