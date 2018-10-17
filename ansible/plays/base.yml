@@ -12,5 +12,10 @@
 - name: Run the base role on the instance
   hosts: all
   become: yes
+  tasks:
+    - name: Update cache
+      apt:
+        update_cache: yes
   roles:
-    - { role: ansible/roles/ansible-role-common }
+    # We're calling from the packer directory
+    - { role: ../ansible/roles/ansible-role-common }
