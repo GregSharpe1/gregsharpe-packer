@@ -11,7 +11,7 @@ pipeline {
   environment {
     AWS_ACCESS_KEY_ID = credentials('JenkinsPacker_Public')
     AWS_SECRET_ACCESS_KEY = credentials('JenkinsPacker_Private')
-    AWS_REGION = ${env.AWS_REGION}
+    AWS_REGION = "${env.AWS_REGION}"
     PACKER_AMI = sh(script: "aws ec2 describe-images --owner self --query 'Images[*].{ID:ImageId}' | grep -o '\".*\"' | sed 's/\"//g' | cut -d\":\" -f2")
   }
   stages {
