@@ -22,7 +22,7 @@ pipeline {
     stage('Build') {
       steps {
         dir('packer-images/') {
-          sh 'packer build -debug ubuntu1604.json'
+          sh 'packer build -debug london-ubuntu1604.json'
         }
       }
     }
