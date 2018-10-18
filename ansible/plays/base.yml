@@ -12,15 +12,18 @@
       become: "True"
       changed_when: "False"
 
+- name: Update apt cache
+  become: yes
+  tasks:
+    - name: Update cache
+      apt:
+        update_cache: yes
+
 - name: Run the base role on the instance
   hosts: all
   become: yes
   become_method: sudo
   become_user: root
-  tasks:
-    - name: Update cache
-      apt:
-        update_cache: yes
   roles:
     # We're calling from the packer directory
     - { role: ../ansible/roles/common }
