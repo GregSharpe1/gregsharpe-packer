@@ -21,7 +21,7 @@ pipeline {
     stage('Validate') {
       steps {
         dir('packer-images/') {
-          sh 'packer validate ${params.AWS_REGION}-ubuntu1604.json'
+          sh 'packer validate "${params.AWS_REGION}-ubuntu1604.json"'
           slackSend "Your ${params.AWS_REGION} packer image validated!"
 	      }
       }
@@ -30,7 +30,7 @@ pipeline {
       steps {
         dir('packer-images/') {
           slackSend "Starting packer build in ${params.AWS_REGION}"
-          // sh 'packer build -debug ${params.AWS_REGION}-ubuntu1604.json'
+          // sh 'packer build -debug "${params.AWS_REGION}-ubuntu1604.json"'
         }
       }
     }
