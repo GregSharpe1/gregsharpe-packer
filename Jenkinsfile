@@ -1,17 +1,18 @@
 pipeline {
 
   agent any
-  environment {
-    AWS_ACCESS_KEY_ID = credentials('JenkinsPacker_Public')
-    AWS_SECRET_ACCESS_KEY = credentials('JenkinsPacker_Private')
-    PACKER_AMI = sh(script: "aws ec2 describe-images --owner self --query 'Images[*].{ID:ImageId}' | grep -o '\".*\"' | sed 's/\"//g' | cut -d\":\" -f2")
-  }
   parameters {
     string(
       name: 'AWS_REGION',
       defaultValue: 'eu-west-2',
       description: 'Where do you wish to build an image?'
     )
+  }
+  environment {
+    AWS_ACCESS_KEY_ID = credentials('JenkinsPacker_Public')
+    AWS_SECRET_ACCESS_KEY = credentials('JenkinsPacker_Private')
+    AWS_REGION = ${env.AWS_REGION}
+    PACKER_AMI = sh(script: "aws ec2 describe-images --owner self --query 'Images[*].{ID:ImageId}' | grep -o '\".*\"' | sed 's/\"//g' | cut -d\":\" -f2")
   }
   stages {
     stage('Checkout SCM') {
