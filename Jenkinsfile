@@ -41,7 +41,7 @@ pipeline {
     }
     stage('Slack Notify') {
       steps {
-        slackSend "Completed the packer build in ${parmas.AWS_REGION}"
+        slackSend "Completed the packer build in ${params.AWS_REGION}"
       }
     } 
   }
