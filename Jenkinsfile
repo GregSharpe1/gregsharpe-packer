@@ -4,7 +4,7 @@ pipeline {
   environment {
     AWS_ACCESS_KEY_ID = credentials('JenkinsPacker_Public')
     AWS_SECRET_ACCESS_KEY = credentials('JenkinsPacker_Private')
-    PACKER_AMI = sh(script: "aws ec2 describe-images --owner self --query 'Images[*].{ID:ImageId}' | grep -o '\".*\"' | sed 's/\"//g' | cut -d":" -f2")
+    PACKER_AMI = sh(script: "aws ec2 describe-images --owner self --query 'Images[*].{ID:ImageId}' | grep -o '\".*\"' | sed 's/\"//g' | cut -d\":\" -f2")
   }
   parameters {
     string(
