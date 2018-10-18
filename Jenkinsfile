@@ -17,6 +17,7 @@ pipeline {
     stage('Checkout SCM') {
       steps {
         checkout scm
+        slackSend "Completed the packer build in ${params.AWS_REGION}, New AMI ${env.PACKER_AMI}"
       }
     }
     stage('Validate') {
