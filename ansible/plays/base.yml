@@ -16,7 +16,7 @@
   hosts: all
   become: yes
   become_method: sudo
-  become:user: root
+  become_user: root
   tasks:
     - name: Update cache
       apt:
