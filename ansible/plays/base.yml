@@ -9,13 +9,6 @@
       become: "True"
       changed_when: "False"
 
-# - name: Update apt cache
-#   become: yes
-#   tasks:
-#     - name: Update cache
-#       apt:
-#         update_cache: yes
-
 - name: Run the base role on the instance
   hosts: all
   become: yes
