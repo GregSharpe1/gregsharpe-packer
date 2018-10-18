@@ -3,6 +3,9 @@
 - name: Make sure python minimal is installed for ansible
   hosts: all
   gather_facts: "False"
+  become: yes
+  become_method: sudo
+  become_user: root
   tasks:
     - name: Install python for Ansible
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
@@ -12,6 +15,8 @@
 - name: Run the base role on the instance
   hosts: all
   become: yes
+  become_method: sudo
+  become:user: root
   tasks:
     - name: Update cache
       apt:
