@@ -30,7 +30,7 @@ pipeline {
       steps {
         dir('packer-images/') {
           slackSend "Starting packer build in ${params.AWS_REGION}"
-          // sh "packer build -debug ${params.AWS_REGION}-ubuntu1604.json"
+          sh "packer build -debug ${params.AWS_REGION}-ubuntu1604.json"
         }
       }
     }
