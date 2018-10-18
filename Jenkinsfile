@@ -15,7 +15,7 @@ pipeline {
     stage('Validate') {
       steps {
         dir('packer-images/') {
-          sh 'packer validate ubuntu1604.json'
+          sh 'packer validate london-ubuntu1604.json'
 	      }
       }
     }
