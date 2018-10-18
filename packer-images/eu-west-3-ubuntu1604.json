@@ -11,7 +11,7 @@
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "eu-west-3",
       "source_ami": "ami-d37acbae",
-      "instance_type": "t2.nano",
+      "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "gregsharpe-packer Ubuntu 16.04"
     }
